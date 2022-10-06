@@ -1,0 +1,9 @@
+Use-cases outline for Project 1
+
+1.  Employee should be able to login.
+2.  Finance Manager should be able to login.
+3.  Employee should be able to view past tickets.
+4.  Employee should be able to add reimburesment requests.
+5.  Finance Manager should be able to view all reimbursments for all employees.
+6.  Finance Manager should be able to approve/deny reimburements.
+7.  Finance Manager should be able to filter requests by status. 
