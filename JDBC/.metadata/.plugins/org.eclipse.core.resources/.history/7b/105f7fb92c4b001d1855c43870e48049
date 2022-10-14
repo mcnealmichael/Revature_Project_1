@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author fwinc
- *
- */
-module JavaBasics {
-}
