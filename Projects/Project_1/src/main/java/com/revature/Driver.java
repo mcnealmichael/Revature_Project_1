@@ -3,6 +3,7 @@ package com.revature;
 import org.eclipse.jetty.http.HttpStatus;
 import com.revature.dao.EmployeeDAO;
 import com.revature.dao.LoginDAO;
+import com.revature.dao.RegisterDAO;
 import com.revature.dao.TicketDAO;
 import com.revature.model.Employees;
 import com.revature.model.Reimbursement_Login;
@@ -22,28 +23,31 @@ public class Driver {
 		});
 		
 		
-		app.post("/login", ctx -> {
+		app.post("/newEmployee", ctx -> {
 			Employees employee = ctx.bodyAsClass(Employees.class);
-			EmployeeDAO empDAO = new EmployeeDAO();
-			empDAO.save(employee);
+			RegisterDAO register = new RegisterDAO();
+			register.save(employee);
 			ctx.status(HttpStatus.CREATED_201);
 		});
 		
-		app.post("/register", ctx -> {
+		app.post("/verifyUser", ctx -> {
 			Reimbursement_Login register = ctx.bodyAsClass(Reimbursement_Login.class);
-			Employees employee = ctx.bodyAsClass(Employees.class);
-			LoginDAO reg = new LoginDAO();
-			reg.addUserNamePassword(register, employee);
+			LoginDAO userName = new LoginDAO();
+			userName.verifyLogin(register);
 			ctx.status(HttpStatus.CREATED_201);
 		});
 		
+		app.post("/registerUser", ctx -> {
+			
+		});
+		/*
 		app.post("/ticket", ctx -> {
 			Reimbursement_Ticket newTicket = ctx.bodyAsClass(Reimbursement_Ticket.class);
 			TicketDAO ticket = new TicketDAO();
 			ticket.createTicket(newTicket);
 			ctx.status(HttpStatus.CREATED_201);
 		});
-		
+		*/
 		/*
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 		Employees emp = new Employees("John", "Doe", "Employee");
